@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BERES Mocha – Money Changer Management System</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon"><img src="logo.svg"></div>
+        BERES Mocha
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-outline" style="padding:10px 22px; font-size:13px;">Contact Us</a>
+        <a href="https://sample.beresmocha.my.id" target="_blank" class="btn btn-gold" style="padding:10px 22px; font-size:13px;">Try Demo</a>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#features" onclick="closeMenu()">Features</a>
+  <a href="#clients" onclick="closeMenu()">Clients</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-layout">
+      <!-- LEFT -->
+      <div>
+        <div class="hero-eyebrow reveal">
+          <span></span>
+          Premium Money Changer Management System
+        </div>
+        <h1 class="hero-headline reveal reveal-delay-1">
+          The <em>Smarter Way</em><br/>to Manage Your<br/>Currency Business
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Brotherhood Report System Mocha is an all-in-one management platform designed exclusively for money changer businesses — from real-time rate management to multi-branch reporting.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="https://sample.beresmocha.my.id" target="_blank" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Try Demo
+          </a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div>
+            <div class="hero-stat-num">200<span>+</span></div>
+            <div class="hero-stat-label">Active Branches</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">50<span>K</span></div>
+            <div class="hero-stat-label">Daily Transactions</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">99<span>.9%</span></div>
+            <div class="hero-stat-label">Uptime SLA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Dashboard Mockup -->
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="dashboard-frame">
+          <div class="db-titlebar">
+            <div class="db-dot db-dot-r"></div>
+            <div class="db-dot db-dot-y"></div>
+            <div class="db-dot db-dot-g"></div>
+            <div class="db-url">beresmocha.my.id — Dashboard</div>
+          </div>
+          <div class="db-body">
+            <div class="db-top-row">
+              <div class="db-card">
+                <div class="db-card-label">Today Revenue</div>
+                <div class="db-card-val gold">Rp 48.2M</div>
+                <div class="db-card-trend">▲ 12.4% vs yesterday</div>
+              </div>
+              <div class="db-card">
+                <div class="db-card-label">Transactions</div>
+                <div class="db-card-val">1,284</div>
+                <div class="db-card-trend">▲ 8.1%</div>
+              </div>
+              <div class="db-card">
+                <div class="db-card-label">Active Branches</div>
+                <div class="db-card-val">12</div>
+                <div class="db-card-trend" style="color:#4ade80;">● All Online</div>
+              </div>
+              <div class="db-card">
+                <div class="db-card-label">Profit Margin</div>
+                <div class="db-card-val">2.4%</div>
+                <div class="db-card-trend">▼ 0.2%</div>
+              </div>
+            </div>
+            <div class="db-middle">
+              <div class="db-chart-area">
+                <div class="db-chart-title">Transaction Volume — 7 Days</div>
+                <svg class="db-chart-svg" viewBox="0 0 200 70" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,55 L28,45 L56,50 L84,32 L112,38 L140,20 L168,28 L196,15" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+                  <path d="M0,55 L28,45 L56,50 L84,32 L112,38 L140,20 L168,28 L196,15 L196,70 L0,70 Z" fill="url(#chartGrad)"/>
+                  <circle cx="196" cy="15" r="3" fill="#C9A84C"/>
+                </svg>
+              </div>
+              <div class="db-rates">
+                <div class="db-chart-title">Live Rates</div>
+                <div class="db-rate-row">
+                  <span class="db-rate-cur">USD</span>
+                  <span class="db-rate-buy">15,780</span>
+                  <span class="db-rate-sell">15,820</span>
+                </div>
+                <div class="db-rate-row">
+                  <span class="db-rate-cur">SGD</span>
+                  <span class="db-rate-buy">11,650</span>
+                  <span class="db-rate-sell">11,690</span>
+                </div>
+                <div class="db-rate-row">
+                  <span class="db-rate-cur">EUR</span>
+                  <span class="db-rate-buy">17,110</span>
+                  <span class="db-rate-sell">17,160</span>
+                </div>
+                <div class="db-rate-row">
+                  <span class="db-rate-cur">GBP</span>
+                  <span class="db-rate-buy">19,920</span>
+                  <span class="db-rate-sell">19,980</span>
+                </div>
+                <div class="db-rate-row">
+                  <span class="db-rate-cur">JPY</span>
+                  <span class="db-rate-buy">104</span>
+                  <span class="db-rate-sell">106</span>
+                </div>
+              </div>
+            </div>
+            <div class="db-txn-list">
+              <div class="db-txn-title">Recent Transactions</div>
+              <div class="db-txn-row">
+                <span class="db-txn-id">#TXN-9921</span>
+                <span class="db-txn-type">Buy USD</span>
+                <span class="db-txn-amount">$2,000</span>
+                <span class="db-txn-status done">Done</span>
+              </div>
+              <div class="db-txn-row">
+                <span class="db-txn-id">#TXN-9920</span>
+                <span class="db-txn-type">Sell SGD</span>
+                <span class="db-txn-amount">S$1,500</span>
+                <span class="db-txn-status done">Done</span>
+              </div>
+              <div class="db-txn-row">
+                <span class="db-txn-id">#TXN-9919</span>
+                <span class="db-txn-type">Buy EUR</span>
+                <span class="db-txn-amount">€800</span>
+                <span class="db-txn-status pend">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- floating badges -->
+        <div class="db-badge-floating left">
+          <div class="badge-icon">📈</div>
+          <div class="badge-val">+18.2%</div>
+          <div class="badge-lbl">Monthly Growth</div>
+        </div>
+        <div class="db-badge-floating right">
+          <div class="badge-icon">🔒</div>
+          <div class="badge-val">SSL</div>
+          <div class="badge-lbl">Bank-grade Secure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MARQUEE
+═══════════════════════════════════════ -->
+<div class="marquee-section" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- Items duplicated for seamless loop -->
+    <div class="marquee-item">Exchange Rate Management</div>
+    <div class="marquee-item">Buy &amp; Sell Transactions</div>
+    <div class="marquee-item">Multi-Branch Support</div>
+    <div class="marquee-item">Real-time Reporting</div>
+    <div class="marquee-item">Role &amp; User Management</div>
+    <div class="marquee-item">Audit Trail</div>
+    <div class="marquee-item">Currency Inventory</div>
+    <div class="marquee-item">Profit Analytics</div>
+    <div class="marquee-item">BI Reporting</div>
+    <div class="marquee-item">Self-service order</div>
+    <div class="marquee-item">Customer Display</div>
+    <div class="marquee-item">Cash Transactions</div>
+    <div class="marquee-item">Inter-branch Transactions</div>
+    <div class="marquee-item">PPATK Reporting</div>
+    <div class="marquee-item">Exchange Rate Management</div>
+    <div class="marquee-item">Buy &amp; Sell Transactions</div>
+    <div class="marquee-item">Multi-Branch Support</div>
+    <div class="marquee-item">Real-time Reporting</div>
+    <div class="marquee-item">Role &amp; User Management</div>
+    <div class="marquee-item">Audit Trail</div>
+    <div class="marquee-item">Currency Inventory</div>
+    <div class="marquee-item">Profit Analytics</div>
+    <div class="marquee-item">BI Reporting</div>
+    <div class="marquee-item">Self-service order</div>
+    <div class="marquee-item">Customer Display</div>
+    <div class="marquee-item">Cash Transactions</div>
+    <div class="marquee-item">Inter-branch Transactions</div>
+    <div class="marquee-item">PPATK Reporting</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-visual reveal">
+        <div class="about-card-stack">
+          <div class="about-card about-card-main">
+            <div class="about-card-icon">💱</div>
+            <div class="about-card-title">Built for Money Changers</div>
+            <div class="about-card-text">
+              BERES Mocha is the only platform purpose-built for the specific workflows, compliance needs, and operational realities of currency exchange businesses in Indonesia and Southeast Asia.
+            </div>
+            <div class="about-card-stats">
+              <div class="about-stat">
+                <div class="about-stat-n">35+</div>
+                <div class="about-stat-l">Currencies Supported</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-n">5yr</div>
+                <div class="about-stat-l">In the Market</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-n">98%</div>
+                <div class="about-stat-l">Customer Satisfaction</div>
+              </div>
+              <div class="about-stat">
+                <div class="about-stat-n">24/7</div>
+                <div class="about-stat-l">Support Available</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-card about-card-overlay">
+            <div style="font-size:28px;margin-bottom:10px;">⚡</div>
+            <div class="about-card-title" style="font-size:1.1rem;">Real-time Sync</div>
+            <div class="about-card-text">All branches synchronized instantly. Rate changes propagate in under 500ms.</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-1">
+        <div class="section-badge">About BERES Mocha</div>
+        <h2 class="section-title">A Platform <span>Crafted</span> for Currency Professionals</h2>
+        <p class="about-desc">
+          Managing a money changer business involves constant complexity — fluctuating rates, compliance requirements, multi-location operations, and the need for precise financial reporting. Generic software simply doesn't cut it.
+        </p>
+        <p class="about-desc">
+          BERES Mocha was engineered from the ground up by a team of fintech experts and former money changer operators. Every feature exists because real businesses needed it.
+        </p>
+        <div class="about-list">
+          <div class="about-list-item">
+            <div class="about-check">✓</div>
+            <span>Compliant with Bank Indonesia reporting standards and anti-money laundering requirements.</span>
+          </div>
+          <div class="about-list-item">
+            <div class="about-check">✓</div>
+            <span>Supports complex rate structures including margin management, buy/sell spreads, and volume-based pricing.</span>
+          </div>
+          <div class="about-list-item">
+            <div class="about-check">✓</div>
+            <span>Cloud-based system with real-time data synchronization — access your transactions securely anytime, anywhere.</span>
+          </div>
+          <div class="about-list-item">
+            <div class="about-check">✓</div>
+            <span>Onboarding and training support included with all subscription plans.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FEATURES
+═══════════════════════════════════════ -->
+<section id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <div class="section-badge">Core Features</div>
+      <h2 class="section-title">Everything You Need to<br/><span>Run Your Exchange</span></h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center;">A comprehensive suite of tools purpose-built for money changer operations, from the teller desk to the boardroom.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Exchange Rate Management</div>
+        <div class="feature-desc">Set, schedule, and buy/sell rates across all branches simultaneously. Support for manual input, auto-import from market feeds, and rate history logging.</div>
+        <span class="feature-tag">Real-time Sync</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">💸</div>
+        <div class="feature-title">Buy &amp; Sell Transactions</div>
+        <div class="feature-desc">Fast transaction processing with customer verification, receipt printing, and automatic inventory adjustment. Supports partial payments and multi-currency swaps.</div>
+        <span class="feature-tag">Teller-optimized</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Reporting System</div>
+        <div class="feature-desc">Daily, weekly, and monthly profit &amp; loss reports. Currency position reports, transaction logs, and BI-compliant LTKM exports — all in one click.</div>
+        <span class="feature-tag">Export to Excel / PDF</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🏢</div>
+        <div class="feature-title">Multi-Branch Support</div>
+        <div class="feature-desc">Manage unlimited branches from a single dashboard. View consolidated reports, transfer inventory between branches, and set branch-specific rate policies.</div>
+        <span class="feature-tag">Centralized Control</span>
+      </div>
+      <div class="feature-card featured reveal reveal-delay-2">
+        <div class="feature-icon">👥</div>
+        <div class="feature-title">User &amp; Role Management</div>
+        <div class="feature-desc">Granular permissions for Tellers, Branch Managers, Auditors, and Admins. Full audit trail of every action taken by every user — with session & activity tracking.</div>
+        <span class="feature-tag">Enterprise-grade Security</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">Compliance &amp; Audit Trail</div>
+        <div class="feature-desc">KYC/KYB customer verification, suspicious transaction flagging, and automated PPATK reporting. Stay compliant with zero extra effort from your team.</div>
+        <span class="feature-tag">AML / BI Compliant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY CHOOSE US
+═══════════════════════════════════════ -->
+<section id="benefits">
+  <div class="container">
+    <div class="benefits-layout">
+      <div>
+        <div class="section-badge reveal">Why Choose BERES Mocha</div>
+        <h2 class="section-title reveal reveal-delay-1">Advantages That<br/><span>Set Us Apart</span></h2>
+        <div class="benefits-list">
+          <div class="benefit-item reveal reveal-delay-1">
+            <div class="benefit-num">01</div>
+            <div>
+              <div class="benefit-title">Industry-Specific Design</div>
+              <div class="benefit-desc">Not adapted from generic ERP. Every screen and workflow was designed specifically for money changer operations from day one.</div>
+            </div>
+          </div>
+          <div class="benefit-item reveal reveal-delay-2">
+            <div class="benefit-num">02</div>
+            <div>
+              <div class="benefit-title">Reliable Cloud Architecture</div>
+              <div class="benefit-desc">
+                Fully cloud-based system with secure, real-time transaction processing to ensure accurate data and seamless business operations.
+              </div>
+            </div>
+          </div>
+          <div class="benefit-item reveal reveal-delay-3">
+            <div class="benefit-num">03</div>
+            <div>
+              <div class="benefit-title">Dedicated Local Support</div>
+              <div class="benefit-desc">Indonesia-based support team available via WhatsApp, email, and on-site visits. Average response time under 2 hours.</div>
+            </div>
+          </div>
+          <div class="benefit-item reveal reveal-delay-4">
+            <div class="benefit-num">04</div>
+            <div>
+              <div class="benefit-title">Transparent, Flat Pricing</div>
+              <div class="benefit-desc">No hidden fees, no per-transaction charges. One flat monthly fee covers unlimited users and transactions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefits-visual reveal reveal-delay-2">
+        <div style="position:relative;height:500px;">
+          <div class="benefits-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+          </div>
+          <div class="benefits-center">
+            <div class="orbit-item">📊</div>
+            <div class="orbit-item">🔒</div>
+            <div class="orbit-item">📱</div>
+            <div class="orbit-item">⚡</div>
+            <div class="benefits-icon-center">💱</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CLIENTS
+═══════════════════════════════════════ -->
+<section id="clients">
+  <div class="container">
+    <div class="clients-header reveal">
+      <div class="section-badge">Trusted By</div>
+      <h2 class="section-title">Businesses That <span>Trust BERES Mocha</span></h2>
+      <p class="section-sub" style="margin: 16px auto 0; text-align:center;">From single-branch operations to enterprise chains across Indonesia.</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-card reveal">
+        <div class="client-logo">Bali Primadana Gemilang</div>
+        <div class="client-type">Currency Exchange • Bali</div>
+        <div class="client-since">Since 2023 · 8 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-1">
+        <div class="client-logo">Bali Hastie Indomalaya</div>
+        <div class="client-type">Money Changer • Bali</div>
+        <div class="client-since">Since 2025 · 16 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-2">
+        <div class="client-logo">Quatro Sari</div>
+        <div class="client-type">Money Changer • Bali</div>
+        <div class="client-since">Since 2024 · 7 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-3">
+        <div class="client-logo">Srimasari Arta Prima</div>
+        <div class="client-type">Exchange Bureau • Bali</div>
+        <div class="client-since">Since 2025 · 14 branches</div>
+      </div>
+      <div class="client-card reveal">
+        <div class="client-logo">Dewi Segara</div>
+        <div class="client-type">Money Changer • Bali</div>
+        <div class="client-since">Since 2023 · 3 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-1">
+        <div class="client-logo">Gathuk Sinergi Utama</div>
+        <div class="client-type">Currency Exchange • Bali</div>
+        <div class="client-since">Since 2023 · 5 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-2">
+        <div class="client-logo">Tirta Valas</div>
+        <div class="client-type">Money Changer • Makassar</div>
+        <div class="client-since">Since 2023 · 4 branches</div>
+      </div>
+      <div class="client-card reveal reveal-delay-3">
+        <div class="client-logo">Permata FX</div>
+        <div class="client-type">Exchange Bureau • Yogyakarta</div>
+        <div class="client-since">Since 2022 · 7 branches</div>
+      </div>
+    </div>
+    <div class="clients-trust-bar reveal">
+      Trusted by <strong>60+ money changer businesses</strong> across Indonesia, managing over <strong>Rp 2.4 Trillion</strong> in annual transactions.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRICING
+═══════════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="section-badge">Subscription Plans</div>
+      <h2 class="section-title">Simple, <span>Transparent</span> Pricing</h2>
+      <p class="section-sub" style="margin: 16px auto 0; text-align:center;">No hidden fees. No per-transaction charges. Scale as you grow.</p>
+      <div class="pricing-toggle reveal reveal-delay-1">
+        <div class="toggle-opt active" id="toggleMonthly" onclick="setPricing('monthly')">Monthly</div>
+        <div class="toggle-opt" id="toggleAnnual" onclick="setPricing('annual')">
+          Annual <span class="save-badge">Pay 11 Months only</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- SILVER -->
+      <div class="price-card reveal">
+        <div class="plan-tier">— Starter</div>
+        <div class="plan-name">Silver</div>
+        <div class="price-amount">
+          <div class="price-currency">Rp</div>
+          <div class="price-num" data-monthly="1,5M" data-annual="16,5M">1,5M</div>
+          <div class="price-period">/mo</div>
+        </div>
+        <div class="price-desc">Perfect for single-branch operations just getting started with digital management.</div>
+        <div class="price-features">
+          <div class="price-feature"><span class="check">✓</span> Up to 3 Branches</div>
+          <div class="price-feature"><span class="check">✓</span> Up to 5 User Accounts</div>
+          <div class="price-feature"><span class="check">✓</span> Exchange Rate Management</div>
+          <div class="price-feature"><span class="check">✓</span> Buy & Sell Transactions (unlimited)</div>
+          <div class="price-feature"><span class="check">✓</span> Daily & Monthly Reports</div>
+          <div class="price-feature"><span class="check">✓</span> Basic Audit Trail</div>
+          <div class="price-feature inactive"><span class="cross">✗</span> Multi-Branch Dashboard</div>
+          <div class="price-feature inactive"><span class="cross">✗</span> Advanced Analytics</div>
+          <div class="price-feature inactive"><span class="cross">✗</span> API Access</div>
+        </div>
+        <a href="#contact" class="btn btn-outline form-submit">Get Started</a>
+      </div>
+
+      <!-- GOLD -->
+      <div class="price-card popular reveal reveal-delay-1">
+        <div class="popular-ribbon">Most Popular</div>
+        <div class="plan-tier">— Professional</div>
+        <div class="plan-name gold-text">Gold</div>
+        <div class="price-amount">
+          <div class="price-currency">Rp</div>
+          <div class="price-num" data-monthly="3M" data-annual="33M">3M</div>
+          <div class="price-period">/mo</div>
+        </div>
+        <div class="price-desc">Ideal for growing businesses with multiple branches and higher transaction volume.</div>
+        <div class="price-features">
+          <div class="price-feature"><span class="check">✓</span> Up to 5 Branches</div>
+          <div class="price-feature"><span class="check">✓</span> Up to 25 User Accounts</div>
+          <div class="price-feature"><span class="check">✓</span> Exchange Rate Management</div>
+          <div class="price-feature"><span class="check">✓</span> Buy & Sell Transactions (unlimited)</div>
+          <div class="price-feature"><span class="check">✓</span> Full Reporting Suite</div>
+          <div class="price-feature"><span class="check">✓</span> Advanced Audit Trail & Compliance</div>
+          <div class="price-feature"><span class="check">✓</span> Multi-Branch Dashboard</div>
+          <div class="price-feature"><span class="check">✓</span> Profit & Analytics Reports</div>
+          <div class="price-feature inactive"><span class="cross">✗</span> API Access</div>
+        </div>
+        <a href="#contact" class="btn btn-gold form-submit">Get Started</a>
+      </div>
+
+      <!-- PLATINUM -->
+      <div class="price-card reveal reveal-delay-2">
+        <div class="plan-tier">— Enterprise</div>
+        <div class="plan-name">Platinum</div>
+        <div class="price-amount">
+          <div class="price-currency">Rp</div>
+          <div class="price-num" data-monthly="4,5M" data-annual="49,5M">4,5M</div>
+          <div class="price-period">/mo</div>
+        </div>
+        <div class="price-desc">For enterprise money changer groups requiring unlimited scale and white-glove support.</div>
+        <div class="price-features">
+          <div class="price-feature"><span class="check">✓</span> Up to 10 Branches</div>
+          <div class="price-feature"><span class="check">✓</span> Unlimited User Accounts</div>
+          <div class="price-feature"><span class="check">✓</span> Exchange Rate Management</div>
+          <div class="price-feature"><span class="check">✓</span> Buy & Sell Transactions (unlimited)</div>
+          <div class="price-feature"><span class="check">✓</span> Full Reporting + Custom Reports</div>
+          <div class="price-feature"><span class="check">✓</span> Full Compliance Suite (AML, PPATK)</div>
+          <div class="price-feature"><span class="check">✓</span> Multi-Branch Dashboard</div>
+          <div class="price-feature"><span class="check">✓</span> Advanced Analytics & BI Export</div>
+          <div class="price-feature"><span class="check">✓</span> REST API Access + Webhooks</div>
+        </div>
+        <a href="#contact" class="btn btn-outline form-submit">Contact Sales</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:var(--fz-xs);margin-top:28px;opacity:.7;">
+      Prices in IDR · 1 month free trial on all plans · No credit card required
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testi-header reveal">
+      <div class="section-badge">Testimonials</div>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Since switching to BERES Mocha, we reduced teller processing time by 60% and our monthly reconciliation that used to take 2 days now takes under an hour. It completely transformed how we operate.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,var(--gold),var(--gold-light));">B</div>
+          <div>
+            <div class="testi-name">Budi Santoso</div>
+            <div class="testi-role">Director, Mandala FX · Jakarta</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Managing 14 branches used to require a team of 3 coordinators. With BERES Mocha's multi-branch dashboard, one manager can now oversee everything in real time. The ROI was clear within the first month.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#4ade80,#22c55e);">D</div>
+          <div>
+            <div class="testi-name">Dewi Kusuma</div>
+            <div class="testi-role">CEO, Bali Forex · Denpasar</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">The compliance features alone are worth the subscription. PPATK reporting used to be a nightmare. Now it's automated and accurate. The support team is outstanding — they even helped us onboard our staff.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);">A</div>
+          <div>
+            <div class="testi-name">Ahmad Fauzi</div>
+            <div class="testi-role">Finance Manager, SuryaValas · Surabaya</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+═══════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="reveal">
+        <div class="section-badge">FAQ</div>
+        <h2 class="section-title">Frequently<br/><span>Asked Questions</span></h2>
+        <p class="section-sub" style="margin-top:20px;">Can't find your answer? <a href="#contact" style="color:var(--gold);text-decoration:underline;">Contact our team</a> — we respond in under 2 hours.</p>
+      </div>
+      <div class="faq-list reveal reveal-delay-1">
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            Is Valuta compliant with Bank Indonesia regulations?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Valuta is built specifically for Indonesian money changers and fully supports Bank Indonesia reporting requirements, including LTKM and STR/LTKT reports. Our compliance templates are kept up-to-date with regulatory changes.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            Can the system work without an internet connection?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. Valuta uses an offline-first architecture. Tellers can continue processing transactions during internet outages, and all data is automatically synchronized with the cloud once connectivity is restored.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            How long does onboarding and setup take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Most businesses are fully operational within 1–3 business days. This includes system configuration, data migration, and staff training. Our team handles the entire setup process for you.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            Can I migrate data from my existing system?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. We support data migration from most common formats including Excel spreadsheets, CSV exports, and several legacy money changer software systems. Contact us and we'll assess your specific situation.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            What payment methods do you accept?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">We accept bank transfer (all major Indonesian banks), virtual account (BCA, Mandiri, BRI, BNI), and credit/debit cards via Midtrans. Annual subscriptions can also be paid via corporate invoice.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <button class="faq-q">
+            Is there a limit on the number of transactions?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">No. All Valuta plans include unlimited transactions. We never charge per-transaction fees. Your subscription cost stays flat regardless of how busy your branches are.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA STRIP
+═══════════════════════════════════════ -->
+<div class="cta-strip">
+  <div class="cta-strip-bg"></div>
+  <div class="container cta-strip-content reveal">
+    <h2>Ready to <em>Transform</em><br/>Your Money Changer Business?</h2>
+    <p>Join 20+ businesses who have already modernized their operations with Valuta.</p>
+    <div class="cta-strip-btns">
+      <a href="https://sample.beresmocha.my.id" target="_blank"  class="btn btn-gold">Start Free Trial</a>
+      <a href="#contact" class="btn btn-outline">Schedule a Demo</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="section-badge">Get in Touch</div>
+        <h2 class="section-title">Let's <span>Talk</span> About Your Business</h2>
+        <p class="section-sub">Whether you're ready to start, have questions, or want a live demo — we'd love to hear from you.</p>
+        <div class="contact-points">
+          <div class="contact-point">
+            <div class="contact-point-icon">📍</div>
+            <div>
+              <div class="contact-point-label">Office</div>
+              <div class="contact-point-val">Jl. Mahendradatta No.99, Denpasar, Bali, Indonesia</div>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">📞</div>
+            <div>
+              <div class="contact-point-label">Phone / WhatsApp</div>
+              <div class="contact-point-val">+62 821-3184-1099</div>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">✉️</div>
+            <div>
+              <div class="contact-point-label">Email</div>
+              <div class="contact-point-val">thebrotherhood@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-point">
+            <div class="contact-point-icon">🕐</div>
+            <div>
+              <div class="contact-point-label">Business Hours</div>
+              <div class="contact-point-val">Mon – Fri, 09:00 – 18:00 WITA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-input" placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input type="text" class="form-input" placeholder="Business name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="you@company.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp</label>
+              <input type="tel" class="form-input" placeholder="+62 8xx xxxx xxxx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Interested In</label>
+            <select class="form-select form-input">
+              <option value="">Select a plan or topic</option>
+              <option>Silver Plan</option>
+              <option>Gold Plan</option>
+              <option>Platinum / Enterprise</option>
+              <option>Product Demo</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell us about your business — number of branches, transaction volume, current challenges..."></textarea>
+          </div>
+          <button class="btn btn-gold form-submit" onclick="handleFormSubmit(event)">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="display:inline-flex;">
+          <div class="nav-logo-icon"><img src="logo.svg"></div>
+          BERES Mocha
+        </a>
+        <p>The all-in-one money changer management platform for modern currency exchange businesses across Indonesia.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" title="Instagram">📷</a>
+          <a href="#" class="social-link" title="LinkedIn">💼</a>
+          <a href="#" class="social-link" title="Twitter/X">✖</a>
+          <a href="#" class="social-link" title="WhatsApp">💬</a>
+          <a href="#" class="social-link" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#">Changelog</a>
+          <a href="#">API Documentation</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#clients">Our Clients</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-links">
+          <a href="#contact">Contact Us</a>
+          <a href="#faq">FAQ</a>
+          <a href="#">Help Center</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Brotherhood · All rights reserved.</span>
+      <span>Built with <span>♥</span> in Bali, Indonesia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+<script>
+/* ── Navbar scroll ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Mobile menu ── */
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+/* ── Reveal on scroll ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Active nav link on scroll ── */
+const sections = document.querySelectorAll('section[id], footer[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+  });
+  navAs.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+  });
+});
+
+/* ── FAQ accordion ── */
+function toggleFAQ(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── Pricing toggle ── */
+const priceNums = document.querySelectorAll('.price-num');
+function setPricing(mode) {
+  document.getElementById('toggleMonthly').classList.toggle('active', mode === 'monthly');
+  document.getElementById('toggleAnnual').classList.toggle('active', mode === 'annual');
+  priceNums.forEach(n => {
+    n.textContent = mode === 'annual' ? n.dataset.annual : n.dataset.monthly;
+  });
+}
+
+/* ── Contact form ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  btn.textContent = '✓ Message Sent!';
+  btn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 3000);
+}
+
+/* ── Smooth anchor scroll with offset ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+/* ── Cursor glow effect ── */
+const glow = document.createElement('div');
+glow.style.cssText = `
+  position:fixed;pointer-events:none;z-index:9999;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);
+  transform:translate(-50%,-50%);transition:opacity .3s;
+  top:0;left:0;
+`;
+document.body.appendChild(glow);
+document.addEventListener('mousemove', e => {
+  glow.style.top = e.clientY + 'px';
+  glow.style.left = e.clientX + 'px';
+});
+</script>
+</body>
+</html>

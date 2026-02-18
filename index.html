@@ -758,37 +758,26 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Full Name</label>
-              <input type="text" class="form-input" placeholder="Your full name" />
+              <input type="text" class="form-input" id="fullname" placeholder="Your full name" />
             </div>
             <div class="form-group">
               <label class="form-label">Company</label>
-              <input type="text" class="form-input" placeholder="Business name" />
+              <input type="text" class="form-input" id="company" placeholder="Business name" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="you@company.com" />
+              <input type="email" class="form-input" id="email" placeholder="you@company.com" />
             </div>
             <div class="form-group">
               <label class="form-label">Phone / WhatsApp</label>
-              <input type="tel" class="form-input" placeholder="+62 8xx xxxx xxxx" />
+              <input type="tel" class="form-input" id="phone" placeholder="+62 8xx xxxx xxxx" />
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Interested In</label>
-            <select class="form-select form-input">
-              <option value="">Select a plan or topic</option>
-              <option>Silver Plan</option>
-              <option>Gold Plan</option>
-              <option>Platinum / Enterprise</option>
-              <option>Product Demo</option>
-              <option>General Inquiry</option>
-            </select>
-          </div>
-          <div class="form-group">
             <label class="form-label">Message</label>
-            <textarea class="form-textarea" placeholder="Tell us about your business — number of branches, transaction volume, current challenges..."></textarea>
+            <textarea class="form-textarea" id="message" placeholder="Tell us about your business — number of branches, transaction volume, current challenges..."></textarea>
           </div>
           <button class="btn btn-gold form-submit" onclick="handleFormSubmit(event)">
             Send Message
@@ -862,98 +851,117 @@
      JAVASCRIPT
 ═══════════════════════════════════════ -->
 <script>
-/* ── Navbar scroll ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-/* ── Mobile menu ── */
-function toggleMenu() {
-  const m = document.getElementById('mobileMenu');
-  m.classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('mobileMenu').classList.remove('open');
-}
-
-/* ── Reveal on scroll ── */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
-}, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  /* ── Mobile menu ── */
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
 
-/* ── Active nav link on scroll ── */
-const sections = document.querySelectorAll('section[id], footer[id]');
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+  /* ── Reveal on scroll ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── Active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+    });
+    navAs.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+    });
   });
-  navAs.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+
+  /* ── FAQ accordion ── */
+  function toggleFAQ(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── Pricing toggle ── */
+  const priceNums = document.querySelectorAll('.price-num');
+  function setPricing(mode) {
+    document.getElementById('toggleMonthly').classList.toggle('active', mode === 'monthly');
+    document.getElementById('toggleAnnual').classList.toggle('active', mode === 'annual');
+    priceNums.forEach(n => {
+      n.textContent = mode === 'annual' ? n.dataset.annual : n.dataset.monthly;
+    });
+  }
+
+  /* ── Smooth anchor scroll with offset ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+    });
   });
-});
 
-/* ── FAQ accordion ── */
-function toggleFAQ(item) {
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-/* ── Pricing toggle ── */
-const priceNums = document.querySelectorAll('.price-num');
-function setPricing(mode) {
-  document.getElementById('toggleMonthly').classList.toggle('active', mode === 'monthly');
-  document.getElementById('toggleAnnual').classList.toggle('active', mode === 'annual');
-  priceNums.forEach(n => {
-    n.textContent = mode === 'annual' ? n.dataset.annual : n.dataset.monthly;
+  /* ── Cursor glow effect ── */
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position:fixed;pointer-events:none;z-index:9999;
+    width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);
+    transform:translate(-50%,-50%);transition:opacity .3s;
+    top:0;left:0;
+  `;
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', e => {
+    glow.style.top = e.clientY + 'px';
+    glow.style.left = e.clientX + 'px';
   });
-}
-
-/* ── Contact form ── */
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const btn = e.currentTarget;
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
-    btn.style.background = '';
-    btn.disabled = false;
-  }, 3000);
-}
-
-/* ── Smooth anchor scroll with offset ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-  });
-});
-
-/* ── Cursor glow effect ── */
-const glow = document.createElement('div');
-glow.style.cssText = `
-  position:fixed;pointer-events:none;z-index:9999;
-  width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);
-  transform:translate(-50%,-50%);transition:opacity .3s;
-  top:0;left:0;
-`;
-document.body.appendChild(glow);
-document.addEventListener('mousemove', e => {
-  glow.style.top = e.clientY + 'px';
-  glow.style.left = e.clientX + 'px';
-});
 </script>
+
+<script>
+  /* ── Contact form ── */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const fullName = document.getElementById("fullname").value;
+    const company  = document.getElementById("company").value;
+    const email    = document.getElementById("email").value;
+    const phone    = document.getElementById("phone").value;
+    const message  = document.getElementById("message").value;
+
+    const text = 
+    `Nama : ${fullName}\nPerusahaan : ${company}\nEmail : ${email}\nTelepon : ${phone}\n\n${message}`;
+
+    const encodedText = encodeURIComponent(text);
+
+    const whatsappNumber = "6282131841099";
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    window.open(url, "_blank");
+
+    const btn = e.currentTarget;
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+</script>
+
 </body>
 </html>

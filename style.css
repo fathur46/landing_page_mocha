@@ -679,7 +679,7 @@ input, textarea, select { font-family: inherit; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .price-card {
   background: var(--navy-card); border: 1px solid var(--border);
-  border-radius: 20px; padding: 40px 36px; position: relative; overflow: hidden;
+  border-radius: 20px; padding: 40px 36px 15px; position: relative; overflow: hidden;
   transition: all .4s ease;
 }
 .price-card:hover { transform: translateY(-8px); }
@@ -689,7 +689,7 @@ input, textarea, select { font-family: inherit; }
   box-shadow: 0 0 60px rgba(201,168,76,.1);
 }
 .popular-ribbon {
-  position: absolute; top: 24px; right: -30px;
+  position: absolute; top: 35px; right: -40px;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: var(--navy); font-size: var(--fz-xs); font-weight: 700;
   padding: 4px 44px; transform: rotate(45deg);
@@ -724,6 +724,8 @@ input, textarea, select { font-family: inherit; }
 .price-feature .check { color: #4ade80; font-size: 14px; }
 .price-feature .cross { color: rgba(255,255,255,.2); font-size: 14px; }
 .price-feature.inactive { opacity: .4; }
+
+.price-feature.custom-design { padding: 10px 10px 10px 15px; text-align: center; font-size: var(--fz-xs); color: rgba(201,168,76,.75); text-shadow: 0 8px 32px rgba(201,168,76,.25);  }
 
 /* ─────────────────────────────────────────
    TESTIMONIALS
